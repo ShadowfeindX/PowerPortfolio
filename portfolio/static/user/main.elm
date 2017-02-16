@@ -18,7 +18,7 @@ project id =
             ]
         , div [ class "extra content" ]
             [ a []
-                [ i [ class "user icon" ] []
+                [ i [ class "feed icon" ] []
                 , text "22 views"
                 ]
             ]
@@ -27,21 +27,34 @@ project id =
 
 main =
     div
-        [ class "ui grid"
+        [ class "ui four column doubling stackable grid container"
         , style
             [ ( "position", "relative" )
             , ( "left", "15px" )
-            , ( "top", "-15px" )
             ]
         ]
-        [ project 1
-        , project 2
-        , project 3
-        , project 4
-        , project 5
-        , project 6
-        , project 7
-        , project 8
-        , project 9
-        , project 10
+        [ div [ class "column" ]
+            [ project 1
+            , project 2
+            , project 3
+            , project 4
+            ]
+        , div [ class "column" ]
+            [ project 5
+            , project 6
+            , project 7
+            , project 8
+            ]
+        , div [ class "column" ]
+            [ project 9
+            , project 10
+            , project 11
+            , project 12
+            ]
+        , div [ class "column" ]
+            [ project 13
+            , project 14
+            , project 15
+            , project 16
+            ]
         ]

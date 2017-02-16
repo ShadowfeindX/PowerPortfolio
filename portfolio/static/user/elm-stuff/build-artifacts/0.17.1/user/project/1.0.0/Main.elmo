@@ -43,7 +43,7 @@ var _user$project$Main$project = function (id) {
 								_elm_lang$html$Html$text(
 								A2(
 									_elm_lang$core$Basics_ops['++'],
-									'Project',
+									'Project ',
 									_elm_lang$core$Basics$toString(id)))
 							])),
 						A2(
@@ -94,7 +94,7 @@ var _user$project$Main$project = function (id) {
 								_elm_lang$html$Html$i,
 								_elm_lang$core$Native_List.fromArray(
 									[
-										_elm_lang$html$Html_Attributes$class('user icon')
+										_elm_lang$html$Html_Attributes$class('feed icon')
 									]),
 								_elm_lang$core$Native_List.fromArray(
 									[])),
@@ -108,26 +108,67 @@ var _user$project$Main$main = {
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html_Attributes$class('ui grid'),
+				_elm_lang$html$Html_Attributes$class('ui four column doubling stackable grid container'),
 				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
 					[
 						{ctor: '_Tuple2', _0: 'position', _1: 'relative'},
-						{ctor: '_Tuple2', _0: 'left', _1: '15px'},
-						{ctor: '_Tuple2', _0: 'top', _1: '-15px'}
+						{ctor: '_Tuple2', _0: 'left', _1: '15px'}
 					]))
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_user$project$Main$project(1),
-				_user$project$Main$project(2),
-				_user$project$Main$project(3),
-				_user$project$Main$project(4),
-				_user$project$Main$project(5),
-				_user$project$Main$project(6),
-				_user$project$Main$project(7),
-				_user$project$Main$project(8),
-				_user$project$Main$project(9),
-				_user$project$Main$project(10)
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('column')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Main$project(1),
+						_user$project$Main$project(2),
+						_user$project$Main$project(3),
+						_user$project$Main$project(4)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('column')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Main$project(5),
+						_user$project$Main$project(6),
+						_user$project$Main$project(7),
+						_user$project$Main$project(8)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('column')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Main$project(9),
+						_user$project$Main$project(10),
+						_user$project$Main$project(11),
+						_user$project$Main$project(12)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('column')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Main$project(13),
+						_user$project$Main$project(14),
+						_user$project$Main$project(15),
+						_user$project$Main$project(16)
+					]))
 			]))
 };
