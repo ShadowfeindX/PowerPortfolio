@@ -7406,6 +7406,44 @@ var _elm_lang$html$Html$summary = _elm_lang$html$Html$node('summary');
 var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
 
+var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+var _elm_lang$html$Html_App$program = function (app) {
+	return _elm_lang$html$Html_App$programWithFlags(
+		_elm_lang$core$Native_Utils.update(
+			app,
+			{
+				init: function (_p0) {
+					return app.init;
+				}
+			}));
+};
+var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
+	var _p2 = _p1;
+	return _elm_lang$html$Html_App$programWithFlags(
+		{
+			init: function (_p3) {
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_p2.model,
+					_elm_lang$core$Native_List.fromArray(
+						[]));
+			},
+			update: F2(
+				function (msg, model) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						A2(_p2.update, msg, model),
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				}),
+			view: _p2.view,
+			subscriptions: function (_p4) {
+				return _elm_lang$core$Platform_Sub$none;
+			}
+		});
+};
+var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+
 var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
 var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
 	return A2(_elm_lang$html$Html_Attributes$attribute, 'contextmenu', value);
@@ -7859,6 +7897,33 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
+var _user$project$Main$controller = F2(
+	function (msg, model) {
+		var totalExp = 0;
+		var totalProj = 16;
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Home':
+				return {ctor: '_Tuple4', _0: 0, _1: false, _2: totalProj, _3: totalExp};
+			case 'Browse':
+				return {ctor: '_Tuple4', _0: 1, _1: false, _2: totalProj, _3: totalExp};
+			case 'Profile':
+				return {ctor: '_Tuple4', _0: 2, _1: false, _2: totalProj, _3: totalExp};
+			case 'Login':
+				return {ctor: '_Tuple4', _0: 0, _1: true, _2: totalProj, _3: totalExp};
+			default:
+				return {ctor: '_Tuple4', _0: 0, _1: false, _2: totalProj, _3: totalExp};
+		}
+	});
+var _user$project$Main$model = {ctor: '_Tuple4', _0: 0, _1: false, _2: 0, _3: 0};
+var _user$project$Main$error = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html$text('Wtf Bro!?')
+		]));
 var _user$project$Main$project = function (id) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -7960,22 +8025,61 @@ var _user$project$Main$project = function (id) {
 								_elm_lang$core$Native_List.fromArray(
 									[])),
 								_elm_lang$html$Html$text('22 views')
+							])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('ui buttons'),
+								_elm_lang$html$Html_Attributes$style(
+								_elm_lang$core$Native_List.fromArray(
+									[
+										{ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+										{ctor: '_Tuple2', _0: 'left', _1: '20'}
+									]))
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$button,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('ui button')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html$text('Edit')
+									])),
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('or')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('ui negative button')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html$text('Delete')
+									]))
 							]))
 					]))
 			]));
 };
-var _user$project$Main$main = {
-	main: A2(
+var _user$project$Main$portfolio = function () {
+	var _p1 = _user$project$Main$model;
+	var projects = _p1._2;
+	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html_Attributes$class('ui four column doubling stackable grid container'),
-				_elm_lang$html$Html_Attributes$style(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'position', _1: 'relative'},
-						{ctor: '_Tuple2', _0: 'left', _1: '15px'}
-					]))
+				_elm_lang$html$Html_Attributes$class('ui four column doubling stackable grid container')
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
@@ -8031,7 +8135,269 @@ var _user$project$Main$main = {
 						_user$project$Main$project(15),
 						_user$project$Main$project(16)
 					]))
-			]))
+			]));
+}();
+var _user$project$Main$Logout = {ctor: 'Logout'};
+var _user$project$Main$Login = {ctor: 'Login'};
+var _user$project$Main$Profile = {ctor: 'Profile'};
+var _user$project$Main$Browse = {ctor: 'Browse'};
+var _user$project$Main$Home = {ctor: 'Home'};
+var _user$project$Main$menu = function () {
+	var _p2 = _user$project$Main$model;
+	var loggedIn = _p2._1;
+	var logItem = loggedIn ? A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('ui simple dropdown item')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text('Options      '),
+				A2(
+				_elm_lang$html$Html$i,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('dropdown icon')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('menu')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('edit icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Edit HomePage')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$a,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('globe icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Edit Profile')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item'),
+								_elm_lang$html$Html_Events$onClick(_user$project$Main$Logout)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('settings icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Logout')
+							]))
+					]))
+			])) : A2(
+		_elm_lang$html$Html$a,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('item'),
+				_elm_lang$html$Html_Events$onClick(_user$project$Main$Login)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$i,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('mail icon')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_elm_lang$html$Html$text('Login    ')
+			]));
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('ui stackable menu')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('ui container')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item'),
+								_elm_lang$html$Html_Events$onClick(_user$project$Main$Home)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('home icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Home    ')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item'),
+								_elm_lang$html$Html_Events$onClick(_user$project$Main$Browse)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('grid layout icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Browse    ')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('item'),
+								_elm_lang$html$Html_Events$onClick(_user$project$Main$Profile)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('mail icon')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[])),
+								_elm_lang$html$Html$text('Profile    ')
+							])),
+						logItem,
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('right item')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('ui input')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										A2(
+										_elm_lang$html$Html$input,
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_elm_lang$html$Html_Attributes$placeholder('Search...'),
+												_elm_lang$html$Html_Attributes$type$('text')
+											]),
+										_elm_lang$core$Native_List.fromArray(
+											[]))
+									]))
+							]))
+					]))
+			]));
+}();
+var _user$project$Main$browse = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[]),
+	_elm_lang$core$Native_List.fromArray(
+		[_user$project$Main$menu, _user$project$Main$portfolio]));
+var _user$project$Main$home = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[]),
+	_elm_lang$core$Native_List.fromArray(
+		[_user$project$Main$menu]));
+var _user$project$Main$profile = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_user$project$Main$menu,
+			_elm_lang$html$Html$text('Profile')
+		]));
+var _user$project$Main$view = function (model) {
+	var _p3 = model;
+	_v1_3:
+	do {
+		switch (_p3._0) {
+			case 0:
+				return _user$project$Main$home;
+			case 1:
+				if (_p3._1 === false) {
+					return _user$project$Main$browse;
+				} else {
+					break _v1_3;
+				}
+			case 2:
+				if (_p3._1 === false) {
+					return _user$project$Main$profile;
+				} else {
+					break _v1_3;
+				}
+			default:
+				break _v1_3;
+		}
+	} while(false);
+	return _user$project$Main$error;
+};
+var _user$project$Main$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _user$project$Main$model, view: _user$project$Main$view, update: _user$project$Main$controller})
 };
 
 var Elm = {};
